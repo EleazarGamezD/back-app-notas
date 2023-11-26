@@ -1,8 +1,11 @@
-// ./routes/index.js
+// ./routes/user.js
 
 const express = require('express');
 const router = express.Router();
+const userController = require('../controllers/userController');
 
-// Definir rutas aquí
+
+// Ruta para registrar un nuevo usuario
+router.post('/register', userController.registerUser);
 
 module.exports = router;

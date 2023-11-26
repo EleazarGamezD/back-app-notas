@@ -3,6 +3,9 @@
 const express = require('express');
 const router = express.Router();
 
-// Definir rutas aquí
+app.get ('*', (req, res) => {
+  res.status (404).send ('Esta página no existe :(');
+});
+
 
 module.exports = router;
