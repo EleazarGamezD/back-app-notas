@@ -26,6 +26,9 @@ const noteRoutes = require('./routes/note');
 app.get ('/', (req, res) => {
   res.sendFile (`${__dirname}/index.html`);
 });
+app.get ('*', (req, res) => {
+  res.status (404).send ('Esta página no existe :(');
+});
 app.use('/user', userRoutes);
 app.use('/note', noteRoutes);
 
