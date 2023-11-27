@@ -14,36 +14,6 @@ const signedToken = _id => {
   });
   return token;
 };
-// validando el token
-const validateJwt = expressJwt.expressjwt({
-  secret: process.env.SECRET,
-  algorithms: ["HS256"]
-});
-
-/**
- * Finds and assigns a user based on the provided request.
- *
- * @param {Object} req - The request object.
- * @param {Object} res - The response object.
- * @param {Function} next - The next middleware function.
- * @return {Promise} - A Promise that resolves when the user is found and assigned.
- */
-const findAndAssignUser = async (req, res, next) => {
-  try {
-    //   console.log (req);
-    const user = await User.findById(req.auth._id);
-    if (!user) {
-      return res.status(401).end();
-    }
-    req.user = user;
-    next();
-  } catch (e) {
-    next(e);
-    return res.status(401).end();
-  }
-};
-
-const isAuthenticated = express.Router().use(validateJwt, findAndAssignUser);
 
 const userService = {
   /**
@@ -162,4 +132,4 @@ const userService = {
   }
 };
 
-(module.exports = userService), { isAuthenticated };
+module.exports = userService;

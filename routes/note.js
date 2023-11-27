@@ -1,30 +1,19 @@
 // ./routes/note.js
-
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const noteController = require("../controllers/noteController");
+const isAuthenticated = require("../middleware/authentication");
 
 // Ruta para obtener todas las notas del usuario
-router.get('/', (req, res) => {
-  // Lógica para obtener todas las notas del usuario
-  res.send('Lista de todas las notas del usuario');
-});
+router.get("/all", isAuthenticated, noteController.getAllNotes);
 
 // Ruta para agregar una nueva nota
-router.post('/add', (req, res) => {
-  // Lógica para agregar una nueva nota
-  res.send('Nota agregada exitosamente');
-});
+router.post("/add", isAuthenticated, noteController.addNote);
 
 // Ruta para actualizar una nota existente
-router.put('/update/:id', (req, res) => {
-  // Lógica para actualizar una nota
-  res.send(`Nota con ID ${req.params.id} actualizada`);
-});
+router.put("/update/:noteId", isAuthenticated, noteController.updateNote);
 
 // Ruta para eliminar una nota
-router.delete('/delete/:id', (req, res) => {
-  // Lógica para eliminar una nota
-  res.send(`Nota con ID ${req.params.id} eliminada`);
-});
+router.delete("/delete/:noteId", isAuthenticated, noteController.deleteNote);
 
 module.exports = router;
