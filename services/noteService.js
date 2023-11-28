@@ -11,8 +11,9 @@ const noteService = {
    */
   addNote: async (req, res) => {
     const { title, content, category } = req.body;
+    console.log(req.user);
     const userId = req.user._id;
-
+    console.log(userId);
     try {
       // Verifica si la categoría ya existe para el usuario actual
       let existingCategory = await Category.findOne({ name: category, userId });
@@ -92,8 +93,9 @@ const noteService = {
    * @return {Promise<object>} The notes for the user.
    */
   getAllNotes: async (req, res) => {
-    const userId = req.params.userId;
+    const userId = req.user._id;
 
+    console.log("Id de Usuario", userId);
     try {
       const userNotes = await Note.find({ userId: userId });
 
@@ -101,7 +103,6 @@ const noteService = {
       const formattedNotes = await Promise.all(
         userNotes.map(async note => {
           // Buscar la categoría por su ID
-          console.log(note.category);
           const category = await Category.findById(note.category);
 
           // Devolver la información formateada

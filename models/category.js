@@ -6,7 +6,7 @@ const categorySchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true // Garantiza que cada categoría tenga un nombre único
+    unique: true
   },
   userId: {
     type: Schema.Types.ObjectId,
@@ -14,7 +14,7 @@ const categorySchema = new Schema({
     required: true
   }
 });
-
+categorySchema.index({ name: 1, userId: 1 }, { unique: true });
 const Category = mongoose.model("Category", categorySchema);
 
 module.exports = Category;
