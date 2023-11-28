@@ -15,7 +15,6 @@ const authenticateToken = expressJwt.expressjwt({
 
 // Middleware para asignar el usuario al objeto req.user
 const assignUser = async (req, res, next) => {
-  console.log(req.auth._id);
   try {
     if (req.auth._id) {
       const user = await User.findById(req.auth._id);

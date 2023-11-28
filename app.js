@@ -23,12 +23,14 @@ mongoose.connect(mongoUrl, { ssl: true });
 const indexRoutes = require("./routes/index");
 const userRoutes = require("./routes/user");
 const noteRoutes = require("./routes/note");
+const categoriesRoutes = require("./routes/categories");
 app.get("/", (req, res) => {
   res.sendFile(`${__dirname}/index.html`);
 });
 
 app.use("/user", userRoutes);
 app.use("/note", noteRoutes);
+app.use("/categories", categoriesRoutes);
 
 // Puerto de escucha
 const PORT = process.env.PORT || 3000;

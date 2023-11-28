@@ -11,6 +11,7 @@ const userController = {
  * @return {Promise} The result of registering the user.
  */
   registerUser: async (req, res) => {
+    console.log("register user Function");
     await userService.registerUser(req, res);
   },
 
@@ -22,6 +23,7 @@ const userController = {
      * @return {"User, SignedToken"} A promise that resolves with the result of the login operation.
      */
   loginUser: async (req, res) => {
+    console.log("login user Function");
     await userService.loginUser(req, res);
   },
 
@@ -33,6 +35,7 @@ const userController = {
    * @return {Promise<User>} - A promise that resolves with no value.
    */
   getAllUsers: async (req, res) => {
+    console.log("getAllUsers Function");
     await userService.getAllUsers(req, res);
   },
 
@@ -44,6 +47,7 @@ const userController = {
    * @return {Promise} A promise that resolves to the retrieved user.
    */
   getUserById: async (req, res) => {
+    console.log("getUserById Function");
     await userService.getUserById(req, res);
   }
 };

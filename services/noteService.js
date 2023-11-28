@@ -11,9 +11,8 @@ const noteService = {
    */
   addNote: async (req, res) => {
     const { title, content, category } = req.body;
-    console.log(req.user);
     const userId = req.user._id;
-    console.log(userId);
+
     try {
       // Verifica si la categoría ya existe para el usuario actual
       let existingCategory = await Category.findOne({ name: category, userId });
@@ -28,7 +27,7 @@ const noteService = {
         title,
         content,
         category: existingCategory._id,
-        user: userId
+        userId: userId
       });
 
       res.status(201).json({
@@ -95,7 +94,7 @@ const noteService = {
   getAllNotes: async (req, res) => {
     const userId = req.user._id;
 
-    console.log("Id de Usuario", userId);
+    console.log("Id de Usuario", req.user._id);
     try {
       const userNotes = await Note.find({ userId: userId });
 
