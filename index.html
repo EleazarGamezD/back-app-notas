@@ -3,47 +3,42 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <title>Notes APP</title>
   </head>
   <body>
-    <h1>Notes APP</h1>
-    <hr>
-    <h2>Rutas Para el Usuario</h2>
-    <ul>
-      <!DOCTYPE html>
-      <html lang="es">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Documentación del Endpoint de Registro</title>
-          <style>
+    <script>
+  const baseUrl = process.env.API_URL || 'http://localhost:3000'
+</script>
+    <h1 id="mainTitle">Notes APP</h1>
+    <div class="userRoutesList">
+      <hr>
+      <h2 id="userRoutes">Rutas Para el Usuario</h2>
+      <hr>
+      <ul>
+        <style>
     .hidden {
       display: none;
     }
   </style>
-        </head>
-        <body>
-
-          <h2 id="toggleButton">Registro de Usuario</h2>
-
-          <div id="infoSection" class="hidden">
-            <p>Endpoint: <code>POST /user/register</code></p>
-
-            <p>Registrar un nuevo usuario en la aplicación.</p>
-
-            <h3>Parámetros de la solicitud</h3>
-            <ul>
-              <li><strong>Email:</strong> (String) Dirección de correo
-                electrónico del usuario.</li>
-              <li><strong>Password:</strong> (String) Contraseña del usuario.</li>
-              <li><strong>userName:</strong> (String) Nombre de usuario del
-                usuario.</li>
-            </ul>
-
-            <h3>Ejemplo de solicitud:</h3>
-            <pre>
+      </head>
+      <body>
+        <h2 id="toggleButton">Registro de Usuario</h2>
+        <div id="infoSection" class="hidden">
+          <p>Endpoint: <code>POST /user/register</code></p>
+          <p>Registrar un nuevo usuario en la aplicación.</p>
+          <h3>Parámetros de la solicitud</h3>
+          <ul id="userRoutesList">
+            <li><strong>Email:</strong> (String) Dirección de correo
+              electrónico del usuario.</li>
+            <li><strong>Password:</strong> (String) Contraseña del usuario.</li>
+            <li><strong>userName:</strong> (String) Nombre de usuario del
+              usuario.</li>
+          </ul>
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
     <code>
-curl -X POST http://localhost:3000/user/register \
+curl -X POST ${baseUrl}/user/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "usuario@example.com",
@@ -52,9 +47,8 @@ curl -X POST http://localhost:3000/user/register \
   }'
     </code>
   </pre>
-
-            <h3>Respuesta exitosa:</h3>
-            <pre>
+          <h3>Respuesta exitosa:</h3>
+          <pre>
     <code>
 {
   "user": {
@@ -67,17 +61,17 @@ curl -X POST http://localhost:3000/user/register \
     </code>
   </pre>
 
-            <h3>Respuesta de error:</h3>
-            <pre>
+          <h3>Respuesta de error:</h3>
+          <pre>
     <code>
 {
   "error": "Usuario ya existe"
 }
     </code>
   </pre>
-          </div>
+        </div>
 
-          <script>
+        <script>
   const toggleButton = document.getElementById('toggleButton');
   const infoSection = document.getElementById('infoSection');
 
@@ -85,23 +79,23 @@ curl -X POST http://localhost:3000/user/register \
     infoSection.classList.toggle('hidden');});
 </script>
 
-          <br>
-          <h2 id="toggleButtonLogin">Inicio de Sesión</h2>
+        <br>
+        <h2 id="toggleButtonLogin">Inicio de Sesión</h2>
 
-          <div id="infoSectionLogin" class="hidden">
-            <p>Endpoint: <code>POST /user/login</code></p>
+        <div id="infoSectionLogin" class="hidden">
+          <p>Endpoint: <code>POST /user/login</code></p>
 
-            <p>Iniciar sesión en la aplicación.</p>
+          <p>Iniciar sesión en la aplicación.</p>
 
-            <h3>Parámetros de la solicitud</h3>
-            <ul>
-              <li><strong>Email:</strong> (String) Dirección de correo
-                electrónico del usuario.</li>
-              <li><strong>Password:</strong> (String) Contraseña del usuario.</li>
-            </ul>
+          <h3>Parámetros de la solicitud</h3>
+          <ul>
+            <li><strong>Email:</strong> (String) Dirección de correo
+              electrónico del usuario.</li>
+            <li><strong>Password:</strong> (String) Contraseña del usuario.</li>
+          </ul>
 
-            <h3>Ejemplo de solicitud:</h3>
-            <pre>
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
     <code>
 curl -X POST http://localhost:3000/user/login \
   -H "Content-Type: application/json" \
@@ -112,8 +106,8 @@ curl -X POST http://localhost:3000/user/login \
     </code>
   </pre>
 
-            <h3>Respuesta exitosa:</h3>
-            <pre>
+          <h3>Respuesta exitosa:</h3>
+          <pre>
     <code>
 {
   "user": {
@@ -126,17 +120,17 @@ curl -X POST http://localhost:3000/user/login \
     </code>
   </pre>
 
-            <h3>Respuesta de error:</h3>
-            <pre>
+          <h3>Respuesta de error:</h3>
+          <pre>
     <code>
 {
   "error": "Usuario y/o contraseña invalida."
 }
     </code>
   </pre>
-          </div>
+        </div>
 
-          <script>
+        <script>
   const toggleButtonLogin = document.getElementById('toggleButtonLogin');
   const infoSectionLogin = document.getElementById('infoSectionLogin');
 
@@ -144,26 +138,26 @@ curl -X POST http://localhost:3000/user/login \
     infoSectionLogin.classList.toggle('hidden');});
 </script>
 
-          <br>
-          <h2 id="toggleButtonGetAll">Obtener Todos los Usuarios</h2>
+        <br>
+        <h2 id="toggleButtonGetAll">Obtener Todos los Usuarios</h2>
 
-          <div id="infoSectionGetAll" class="hidden">
-            <p>Endpoint: <code>GET /user</code></p>
+        <div id="infoSectionGetAll" class="hidden">
+          <p>Endpoint: <code>GET /user</code></p>
 
-            <p>Obtiene la lista de todos los usuarios en la aplicación.</p>
+          <p>Obtiene la lista de todos los usuarios en la aplicación.</p>
 
-            <h3>Parámetros de la solicitud</h3>
-            <p>No hay parámetros requeridos.</p>
+          <h3>Parámetros de la solicitud</h3>
+          <p>No hay parámetros requeridos.</p>
 
-            <h3>Ejemplo de solicitud:</h3>
-            <pre>
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
     <code>
 curl http://localhost:3000/user
     </code>
   </pre>
 
-            <h3>Respuesta exitosa:</h3>
-            <pre>
+          <h3>Respuesta exitosa:</h3>
+          <pre>
     <code>
 [
   {
@@ -180,9 +174,9 @@ curl http://localhost:3000/user
 ]
     </code>
   </pre>
-          </div>
+        </div>
 
-          <script>
+        <script>
   const toggleButtonGetAll = document.getElementById('toggleButtonGetAll');
   const infoSectionGetAll = document.getElementById('infoSectionGetAll');
 
@@ -190,29 +184,29 @@ curl http://localhost:3000/user
     infoSectionGetAll.classList.toggle('hidden');});
 </script>
 
-          <br>
+        <br>
 
-          <h2 id="toggleButtonGetById">Obtener Usuario por ID</h2>
+        <h2 id="toggleButtonGetById">Obtener Usuario por ID</h2>
 
-          <div id="infoSectionGetById" class="hidden">
-            <p>Endpoint: <code>GET /user/{userID}</code></p>
+        <div id="infoSectionGetById" class="hidden">
+          <p>Endpoint: <code>GET /user/{userID}</code></p>
 
-            <p>Obtiene la información de un usuario específico por su ID.</p>
+          <p>Obtiene la información de un usuario específico por su ID.</p>
 
-            <h3>Parámetros de la solicitud</h3>
-            <ul>
-              <li><strong>{userID}:</strong> (String) ID único del usuario.</li>
-            </ul>
+          <h3>Parámetros de la solicitud</h3>
+          <ul>
+            <li><strong>{userID}:</strong> (String) ID único del usuario.</li>
+          </ul>
 
-            <h3>Ejemplo de solicitud:</h3>
-            <pre>
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
     <code>
 curl http://localhost:3000/user/123456789
     </code>
   </pre>
 
-            <h3>Respuesta exitosa:</h3>
-            <pre>
+          <h3>Respuesta exitosa:</h3>
+          <pre>
     <code>
 {
   "id": "123456789",
@@ -221,9 +215,9 @@ curl http://localhost:3000/user/123456789
 }
     </code>
   </pre>
-          </div>
+        </div>
 
-          <script>
+        <script>
   const toggleButtonGetById = document.getElementById('toggleButtonGetById');
   const infoSectionGetById = document.getElementById('infoSectionGetById');
 
@@ -231,7 +225,367 @@ curl http://localhost:3000/user/123456789
     infoSectionGetById.classList.toggle('hidden');});
 </script>
 
-        </ul>
+      </ul>
+    </div>
+    <hr>
+    <div class="categoryRoutesList">
+      <h2 id="categoryRoutes">Rutas Para las Categorias (requieren Token del
+        usuario tipo de token Jwt
+        Bearer) </h2>
+      <hr>
+      <br>
+      <ul id="categoryRoutesList">
+        <h2 id="toggleButtonCreateCategory">Crear Nueva Categoría</h2>
 
-      </body>
-    </html>
+        <div id="infoSectionCreateCategory" class="hidden">
+          <p>Endpoint: <code>POST /category</code></p>
+
+          <p>Crea una nueva categoría.</p>
+
+          <h3>Parámetros de la solicitud</h3>
+          <ul>
+            <li><strong>name:</strong> (String) Nombre de la categoría.</li>
+          </ul>
+
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
+    <code>
+curl -X POST http://localhost:3000/category \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "nueva_categoria"
+  }'
+    </code>
+  </pre>
+
+          <h3>Respuesta exitosa:</h3>
+          <pre>
+    <code>
+{
+  "_id": "123456789",
+  "name": "nueva_categoria",
+  "userId": "usuario_id"
+}
+    </code>
+  </pre>
+
+          <h3>Respuesta de error:</h3>
+          <pre>
+    <code>
+{
+  "error": "La categoría ya existe para este usuario."
+}
+    </code>
+  </pre>
+        </div>
+
+        <script>
+  const toggleButtonCreateCategory = document.getElementById('toggleButtonCreateCategory');
+  const infoSectionCreateCategory = document.getElementById('infoSectionCreateCategory');
+
+  toggleButtonCreateCategory.addEventListener('click', () => {
+    infoSectionCreateCategory.classList.toggle('hidden');
+  });
+</script>
+        <br>
+        <h2 id="toggleButtonGetAllCategories">Obtener Todas las Categorías</h2>
+
+        <div id="infoSectionGetAllCategories" class="hidden">
+          <p>Endpoint: <code>GET /category</code></p>
+
+          <p>Obtiene la lista de todas las categorías del usuario.</p>
+
+          <h3>Parámetros de la solicitud</h3>
+          <p>No hay parámetros requeridos.</p>
+
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
+    <code>
+curl http://localhost:3000/category
+    </code>
+  </pre>
+
+          <h3>Respuesta exitosa:</h3>
+          <pre>
+    <code>
+[
+  {
+    "_id": "123456789",
+    "name": "categoria1",
+
+  },
+  {
+    "_id": "987654321",
+    "name": "categoria2",
+
+  },
+ 
+    </code>
+  </pre>
+        </div>
+
+        <script>
+  const toggleButtonGetAllCategories = document.getElementById('toggleButtonGetAllCategories');
+  const infoSectionGetAllCategories = document.getElementById('infoSectionGetAllCategories');
+
+  toggleButtonGetAllCategories.addEventListener('click', () => {
+    infoSectionGetAllCategories.classList.toggle('hidden');
+  });
+</script>
+      </ul>
+    </div>
+    <hr>
+    <!-- Note Routes  -->
+    <div class="noteRoutesList">
+      <h2 id="noteRoutes"> Rutas para las Notas (requieren Token del usuario
+        tipo
+        de token Jwt
+        Bearer)</h2>
+      <hr>
+      <ul id="noteRoutesList">
+        <h2 id="toggleButtonGetAllNotes">Obtener Todas las Notas</h2>
+
+        <div id="infoSectionGetAllNotes" class="hidden">
+          <p><strong>Endpoint:</strong> <code>GET /note</code></p>
+
+          <p>Obtiene la lista de todas las notas del usuario.</p>
+
+          <h3>Parámetros de la solicitud</h3>
+          <p>No hay parámetros requeridos.</p>
+
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
+    <code>
+curl http://localhost:3000/note
+    </code>
+  </pre>
+
+          <h3>Respuesta exitosa:</h3>
+          <pre>
+    <code>
+[
+  {
+    "_id": "123456789",
+    "title": "Nota 1",
+    "content": "Contenido de la nota 1",
+    "category": "ID de la categoría",
+    "isActive": true
+  },
+  {
+    "_id": "987654321",
+    "title": "Nota 2",
+    "content": "Contenido de la nota 2",
+    "category": "ID de la categoría",
+    "isActive": false
+  },
+
+]
+    </code>
+  </pre>
+        </div>
+        <script>
+  const toggleNotesButtonGetAll = document.getElementById('toggleButtonGetAllNotes');
+  const infoSectionNotesGetAll = document.getElementById('infoSectionGetAllNotes');
+
+  toggleNotesButtonGetAll.addEventListener('click', () => {
+    infoSectionNotesGetAll.classList.toggle('hidden');
+  });
+</script>
+        <br>
+        <h2 id="toggleButtonAddNote">Agregar una Nueva Nota</h2>
+
+        <div id="infoSectionAddNote" class="hidden">
+          <p><strong>Endpoint:</strong> <code>POST /note</code></p>
+
+          <p>Agrega una nueva nota para el usuario.</p>
+
+          <h3>Parámetros de la solicitud</h3>
+          <ul>
+            <li><strong>Title:</strong> (String) Título de la nota.</li>
+            <li><strong>Content:</strong> (String) Contenido de la nota.</li>
+            <li><strong>Category:</strong> (String) Nombre de la categoría.</li>
+          </ul>
+
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
+    <code>
+curl -X POST http://localhost:3000/note \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Nueva Nota",
+    "content": "Contenido de la nueva nota",
+    "category": "Nombre de la categoría"
+  }'
+    </code>
+  </pre>
+
+          <h3>Respuesta exitosa:</h3>
+          <pre>
+    <code>
+{
+  "_id": "123456789",
+  "title": "Nueva Nota",
+  "content": "Contenido de la nueva nota",
+  "category": "ID de la categoría",
+  "isActive": true
+}
+    </code>
+  </pre>
+
+          <h3>Respuesta de error:</h3>
+          <pre>
+    <code>
+{
+  "error": "Error al agregar la nueva nota"
+}
+    </code>
+  </pre>
+        </div>
+        <script>
+  const toggleButtonAddNote = document.getElementById('toggleButtonAddNote');
+  const infoSectionAddNote = document.getElementById('infoSectionAddNote');
+
+  toggleButtonAddNote.addEventListener('click', () => {
+    infoSectionAddNote.classList.toggle('hidden');
+  });
+</script>
+        <br>
+        <h2 id="toggleButtonUpdateNote">Actualizar una Nota Existente</h2>
+
+        <div id="infoSectionUpdateNote" class="hidden">
+          <p><strong>Endpoint:</strong> <code>PUT /note/{noteID}</code></p>
+
+          <p>Actualiza una nota existente del usuario.</p>
+
+          <h3>Parámetros de la solicitud</h3>
+          <ul>
+            <li><strong>Title:</strong> (String) Nuevo título de la nota.</li>
+            <li><strong>Content:</strong> (String) Nuevo contenido de la nota.</li>
+            <li><strong>IsActive:</strong> (Boolean) Nuevo estado de la nota
+              (Activa/Inactiva).</li>
+          </ul>
+
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
+    <code>
+curl -X PUT http://localhost:3000/note/123456789 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "Nuevo Título",
+    "content": "Nuevo contenido",
+    "isActive": false
+  }'
+    </code>
+  </pre>
+
+          <h3>Respuesta exitosa:</h3>
+          <pre>
+    <code>
+{
+  "_id": "123456789",
+  "title": "Nuevo Título",
+  "content": "Nuevo contenido",
+  "category": "ID de la categoría",
+  "isActive": false
+}
+    </code>
+  </pre>
+
+          <h3>Respuesta de error:</h3>
+          <pre>
+    <code>
+{
+  "error": "Error al actualizar la nota con ID 123456789"
+}
+    </code>
+  </pre>
+        </div>
+        <script>
+  const toggleButtonUpdateNote = document.getElementById('toggleButtonUpdateNote');
+  const infoSectionUpdateNote = document.getElementById('infoSectionUpdateNote');
+
+  toggleButtonUpdateNote.addEventListener('click', () => {
+    infoSectionUpdateNote.classList.toggle('hidden');
+  });
+</script>
+        <br>
+        <h2 id="toggleButtonDeleteNote">Eliminar una Nota</h2>
+
+        <div id="infoSectionDeleteNote" class="hidden">
+          <p><strong>Endpoint:</strong> <code>DELETE /note/{noteID}</code></p>
+
+          <p>Elimina una nota del usuario.</p>
+
+          <h3>Parámetros de la solicitud</h3>
+          <p>No hay parámetros requeridos.</p>
+
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
+    <code>
+curl -X DELETE http://localhost:3000/note/123456789
+    </code>
+  </pre>
+
+          <h3>Respuesta exitosa:</h3>
+          <p>Nota con ID 123456789 eliminada exitosamente.</p>
+
+          <h3>Respuesta de error:</h3>
+          <pre>
+    <code>
+{
+  "error": "Error al eliminar la nota con ID 123456789"
+}
+    </code>
+  </pre>
+        </div>
+        <script>
+  const toggleButtonDeleteNote = document.getElementById('toggleButtonDeleteNote');
+  const infoSectionDeleteNote = document.getElementById('infoSectionDeleteNote');
+
+  toggleButtonDeleteNote.addEventListener('click', () => {
+    infoSectionDeleteNote.classList.toggle('hidden');
+  });
+</script>
+        <br>
+        <h2 id="toggleButtonGetNoteById">Obtener una Nota por ID</h2>
+
+        <div id="infoSectionGetNoteById" class="hidden">
+          <p><strong>Endpoint:</strong> <code>GET /note/{noteID}</code></p>
+
+          <p>Obtiene la información de una nota específica por su ID.</p>
+
+          <h3>Parámetros de la solicitud</h3>
+          <p>No hay parámetros requeridos.</p>
+
+          <h3>Ejemplo de solicitud:</h3>
+          <pre>
+    <code>
+curl http://localhost:3000/note/123456789
+    </code>
+  </pre>
+
+          <h3>Respuesta exitosa:</h3>
+          <pre>
+    <code>
+{
+  "_id": "123456789",
+  "title": "Nota 1",
+  "content": "Contenido de la nota 1",
+  "category": "ID de la categoría",
+  "isActive": true
+}
+    </code>
+  </pre>
+        </div>
+        <script>
+  const toggleButtonGetNoteById = document.getElementById('toggleButtonGetNoteById');
+  const infoSectionGetNoteById = document.getElementById('infoSectionGetNoteById');
+
+  toggleButtonGetNoteById.addEventListener('click', () => {
+    infoSectionGetNoteById.classList.toggle('hidden');
+  });
+</script>
+      </ul>
+    </div>
+  </body>
+</html>

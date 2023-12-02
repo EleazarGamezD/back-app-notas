@@ -1,18 +1,14 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const session = require("express-session");
-const passport = require("passport");
 const app = express();
+
+// para que me lea los archivos css
+app.use(express.static(`${__dirname}`));
 
 // Configuración de Express
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// Configuración de sesión y Passport
-app.use(session({ secret: "secret", resave: true, saveUninitialized: true }));
-app.use(passport.initialize());
-app.use(passport.session());
 
 // Conexión a MongoDB
 const mongoUrl = "mongodb+srv://" + process.env.MONGOATLAS;

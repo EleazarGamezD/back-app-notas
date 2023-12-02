@@ -52,6 +52,11 @@ const noteController = {
   deleteNote: async (req, res) => {
     console.log("Delete Note function");
     await noteService.deleteNote(req, res);
+  },
+
+  getNoteById: async (req, res) => {
+    console.log("Get Note By ID function");
+    await noteService.getNoteByID(req, res);
   }
 };
 

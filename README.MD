@@ -1,10 +1,6 @@
 ```
 back-app-notas/
 │
-├── config/
-│ ├── db.js // Configuración de la base de datos
-│ ├── passport.js // Configuración de Passport (autenticación)
-│
 ├── models/
 │ ├── user.js // Modelo de datos para usuarios
 │ ├── note.js // Modelo de datos para notas

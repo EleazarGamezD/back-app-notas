@@ -6,6 +6,8 @@ const userController = require("../controllers/userController");
 
 // Ruta para registrar un nuevo usuario
 router.post("/register", userController.registerUser);
+
+// Ruta para iniciar sesión
 router.post("/login", userController.loginUser);
 
 // Ruta para obtener un usuario por ID

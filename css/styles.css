@@ -1,0 +1,83 @@
+/* Paleta de colores */
+.color1 {
+    background-color: #f5e3ae;
+}
+
+.color2 {
+    background-color: #fff5d6;
+}
+
+.color3 {
+    background-color: #e1e6d3;
+}
+
+.color4 {
+    background-color: #b1ccc4;
+}
+
+.color5 {
+    background-color: #4e5861;
+}
+
+/* Estilos generales para el documento */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff5d6;
+    color: #4e5861;
+}
+
+/* Estilos para el título principal */
+#mainTitle {
+    text-align: center;
+    background-color: #e1e6d3;
+    padding: 10px;
+}
+
+/* Estilos para las secciones */
+h2 {
+    color: #4e5861;
+    background-color: #b1ccc4;
+    padding: 10px;
+}
+
+/* Estilos para las listas */
+ul {
+    list-style-type: none;
+}
+
+/* Estilos para los elementos de lista */
+li {
+    margin-bottom: 20px;
+}
+
+.noteRoutesList {
+    list-style-type: none;
+    margin-left: 50px;
+    max-width: 90%;
+    background: #f1f7fe;
+    overflow: hidden;
+    border-radius: 16px;
+    color: #010101;
+}
+
+.userRoutesList {
+    list-style-type: none;
+    margin-left: 50px;
+    max-width: 90%;
+    background: #f1f7fe;
+    overflow: hidden;
+    border-radius: 16px;
+    color: #010101;
+}
+
+.categoryRoutesList {
+    margin-left: 50px;
+    list-style-type: none;
+    max-width: 90%;
+    background: #f1f7fe;
+    overflow: hidden;
+    border-radius: 16px;
+    color: #010101;
+}

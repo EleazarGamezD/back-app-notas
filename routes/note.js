@@ -16,6 +16,8 @@ router.put("/update/:noteId", isAuthenticated, noteController.updateNote);
 // Ruta para eliminar una nota
 router.delete("/delete/:noteId", isAuthenticated, noteController.deleteNote);
 
+router.get("/getNote/:noteId", isAuthenticated, noteController.getNoteById);
+
 // Ruta comodín para manejar rutas no definidas
 router.get("*", (req, res) => {
   res.status(404).send("Esta página no existe :(");
