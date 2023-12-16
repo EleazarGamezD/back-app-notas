@@ -3,13 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
     <title>Notes APP</title>
   </head>
   <body>
-    <script>
-  const baseUrl = process.env.API_URL || 'http://localhost:3000'
-</script>
     <h1 id="mainTitle">Notes APP</h1>
     <div class="userRoutesList">
       <hr>
@@ -38,7 +35,7 @@
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X POST ${baseUrl}/user/register \
+curl -X POST http://localhost:3000/user/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "usuario@example.com",
