@@ -76,8 +76,10 @@ back-app-notas/
 ├── middleware/
 │ ├── authentication.js // Middleware para la autenticación
 │
-├── css/
-│ ├── styles.css // Hoja de estilos para la codumentacion
+├── public
+│    ├── index.html // Archivo Html con la documentación
+│    ├── css/
+│      ├── styles.css // Hoja de estilos para la documentación
 |
 ├── app.js // Archivo principal de la aplicación
 ├── package.json // Archivo de configuración de Node.

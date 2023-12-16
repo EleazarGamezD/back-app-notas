@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // para que me lea los archivos css
-app.use(express.static(`${__dirname}`));
+app.use(express.static(__dirname + "/public"));
 
 // Configuración de Express
 app.use(express.json());
@@ -25,7 +25,7 @@ app.use("/user", userRoutes);
 app.use("/note", noteRoutes);
 app.use("/categories", categoriesRoutes);
 app.get("/", (req, res) => {
-  res.sendFile(`${__dirname}/index.html`);
+  res.sendFile(`${__dirname}/public/index.html`);
 });
 
 // Puerto de escucha
