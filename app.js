@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 // para que me lea los archivos css
-app.use(express.static(`${__dirname}`));
+app.use(express.static(__dirname + "/public"));
 
 // Configuración de Express
 app.use(express.json());
