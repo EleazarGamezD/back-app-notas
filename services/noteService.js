@@ -22,11 +22,13 @@ const noteService = {
 
           // Devolver la información formateada
           return {
-            _id: note._id,
+            id: note._id,
             title: note.title,
             content: note.content,
             category: category ? category.name : null,
-            isActive: note.isActive
+            isActive: note.isActive,
+            cretaDate: note.createDate,
+            updateDate: note.updateDate
           };
         })
       );
@@ -51,11 +53,12 @@ const noteService = {
       let existingNote = await Note.findById({ _id: noteId, userId });
       const category = await Category.findById(existingNote.category);
       res.status(201).json({
-        _id: existingNote._id,
+        id: existingNote._id,
         title: existingNote.title,
         content: existingNote.content,
         category: category.name,
-        isActive: existingNote.isActive
+        isActive: existingNote.isActive,
+        creationDate: existingNote.createDate
       });
     } catch (error) {
       console.error(error);
@@ -92,11 +95,12 @@ const noteService = {
       });
 
       res.status(201).json({
-        _id: newNote._id,
+        id: newNote._id,
         title: newNote.title,
         content: newNote.content,
         category: existingCategory.name,
-        isActive: newNote.isActive
+        isActive: newNote.isActive,
+        createDate: newNote.createDate
       });
     } catch (error) {
       console.error(error);
@@ -117,15 +121,17 @@ const noteService = {
     try {
       // Verifica si la nota existe
       const existingNote = await Note.findById(id);
-
+      let udateAt = new Date();
       if (!existingNote) {
         return res.status(404).send(`Nota con ID ${id} no encontrada`);
       }
       if (title) {
         existingNote.title = title;
+        existingNote.updateDate = udateAt;
       }
       if (content) {
         existingNote.content = content;
+        existingNote.updateDate = udateAt;
       }
       if (isActive !== undefined) {
         existingNote.isActive = isActive;
@@ -133,11 +139,13 @@ const noteService = {
       const category = await Category.findById(existingNote.category);
       const updatedNote = await existingNote.save();
       res.json({
-        _id: updatedNote._id,
+        id: updatedNote._id,
         title: updatedNote.title,
         content: updatedNote.content,
         category: category.name,
-        isActive: updatedNote.isActive
+        isActive: updatedNote.isActive,
+        createDate: updatedNote.createDate,
+        updateDate: updatedNote.updateDate
       });
     } catch (error) {
       console.error(error);
