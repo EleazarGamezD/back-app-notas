@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <base href="/">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="<%= apiUrl %>"
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <title>Notes APP</title>
   </head>
@@ -36,8 +37,8 @@
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X POST http://localhost:3000/user/register \
-  -H "Content-Type: application/json" \
+curl -X POST <%= apiUrl %>/user/register 
+  -H "Content-Type: application/json" 
   -d '{
     "email": "usuario@example.com",
     "password": "contrasena123",
@@ -95,8 +96,8 @@ curl -X POST http://localhost:3000/user/register \
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X POST http://localhost:3000/user/login \
-  -H "Content-Type: application/json" \
+curl -X POST <%= apiUrl %>/user/login 
+  -H "Content-Type: application/json" 
   -d '{
     "email": "usuario@example.com",
     "password": "contrasena123"
@@ -150,7 +151,7 @@ curl -X POST http://localhost:3000/user/login \
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl http://localhost:3000/user
+curl <%= apiUrl %>/user
     </code>
   </pre>
 
@@ -199,7 +200,7 @@ curl http://localhost:3000/user
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl http://localhost:3000/user/123456789
+curl <%= apiUrl %>/user/123456789
     </code>
   </pre>
 
@@ -248,8 +249,8 @@ curl http://localhost:3000/user/123456789
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X POST http://localhost:3000/category \
-  -H "Content-Type: application/json" \
+curl -X POST <%= apiUrl %>/category 
+  -H "Content-Type: application/json" 
   -d '{
     "name": "nueva_categoria"
   }'
@@ -299,7 +300,7 @@ curl -X POST http://localhost:3000/category \
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl http://localhost:3000/category
+curl <%= apiUrl %>/category
     </code>
   </pre>
 
@@ -354,7 +355,7 @@ curl http://localhost:3000/category
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl http://localhost:3000/note
+curl <%= apiUrl %>/note
     </code>
   </pre>
 
@@ -407,8 +408,8 @@ curl http://localhost:3000/note
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X POST http://localhost:3000/note \
-  -H "Content-Type: application/json" \
+curl -X POST <%= apiUrl %>/note 
+  -H "Content-Type: application/json" 
   -d '{
     "title": "Nueva Nota",
     "content": "Contenido de la nueva nota",
@@ -458,7 +459,8 @@ curl -X POST http://localhost:3000/note \
           <h3>Parámetros de la solicitud</h3>
           <ul>
             <li><strong>Title:</strong> (String) Nuevo título de la nota.</li>
-            <li><strong>Content:</strong> (String) Nuevo contenido de la nota.</li>
+            <li><strong>Content:</strong> (String) Nuevo contenido de la
+              nota.</li>
             <li><strong>IsActive:</strong> (Boolean) Nuevo estado de la nota
               (Activa/Inactiva).</li>
           </ul>
@@ -466,8 +468,8 @@ curl -X POST http://localhost:3000/note \
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X PUT http://localhost:3000/note/123456789 \
-  -H "Content-Type: application/json" \
+curl -X PUT <%= apiUrl %>/note/123456789 
+  -H "Content-Type: application/json" 
   -d '{
     "title": "Nuevo Título",
     "content": "Nuevo contenido",
@@ -520,7 +522,7 @@ curl -X PUT http://localhost:3000/note/123456789 \
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X DELETE http://localhost:3000/note/123456789
+curl -X DELETE <%= apiUrl %>/note/123456789
     </code>
   </pre>
 
@@ -558,7 +560,7 @@ curl -X DELETE http://localhost:3000/note/123456789
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl http://localhost:3000/note/123456789
+curl <%= apiUrl %>/note/123456789
     </code>
   </pre>
 

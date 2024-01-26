@@ -24,8 +24,13 @@ const categoriesRoutes = require("./routes/categories");
 app.use("/user", userRoutes);
 app.use("/note", noteRoutes);
 app.use("/categories", categoriesRoutes);
+
+const hostUrl = process.env.API_BASE_URL || "http://localhost:3000";
+app.set("view engine", "ejs");
 app.get("/", (req, res) => {
-  res.sendFile(`${__dirname}/public/index.html`);
+  res.render("index.ejs", {
+    apiUrl: hostUrl
+  });
 });
 
 // Puerto de escucha
