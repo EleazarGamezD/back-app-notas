@@ -27,6 +27,7 @@ app.use("/categories", categoriesRoutes);
 
 const hostUrl = process.env.API_BASE_URL || "http://localhost:3000";
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.get("/", (req, res) => {
   res.render("index.ejs", {
     apiUrl: hostUrl
