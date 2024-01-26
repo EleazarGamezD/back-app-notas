@@ -25,6 +25,7 @@ app.use("/user", userRoutes);
 app.use("/note", noteRoutes);
 app.use("/categories", categoriesRoutes);
 
+const path = require("path");
 const hostUrl = process.env.API_BASE_URL || "http://localhost:3000";
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
