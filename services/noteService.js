@@ -27,7 +27,7 @@ const noteService = {
             content: note.content,
             category: category ? category.name : null,
             isActive: note.isActive,
-            cretaDate: note.createDate,
+            createDate: note.createDate,
             updateDate: note.updateDate
           };
         })
@@ -58,7 +58,8 @@ const noteService = {
         content: existingNote.content,
         category: category.name,
         isActive: existingNote.isActive,
-        creationDate: existingNote.createDate
+        createDate: existingNote.createDate,
+        updateDate: existingNote.updateDate
       });
     } catch (error) {
       console.error(error);
