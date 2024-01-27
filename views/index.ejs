@@ -345,7 +345,7 @@ curl <%= apiUrl %>/category
         <h2 id="toggleButtonGetAllNotes">Obtener Todas las Notas</h2>
 
         <div id="infoSectionGetAllNotes" class="hidden">
-          <p><strong>Endpoint:</strong> <code>GET /note</code></p>
+          <p><strong>Endpoint:</strong> <code>GET /note/all</code></p>
 
           <p>Obtiene la lista de todas las notas del usuario.</p>
 
@@ -355,7 +355,7 @@ curl <%= apiUrl %>/category
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl <%= apiUrl %>/note
+curl <%= apiUrl %>/note/all
     </code>
   </pre>
 
@@ -394,7 +394,7 @@ curl <%= apiUrl %>/note
         <h2 id="toggleButtonAddNote">Agregar una Nueva Nota</h2>
 
         <div id="infoSectionAddNote" class="hidden">
-          <p><strong>Endpoint:</strong> <code>POST /note</code></p>
+          <p><strong>Endpoint:</strong> <code>POST /note/add</code></p>
 
           <p>Agrega una nueva nota para el usuario.</p>
 
@@ -408,7 +408,7 @@ curl <%= apiUrl %>/note
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X POST <%= apiUrl %>/note 
+curl -X POST <%= apiUrl %>/note/add 
   -H "Content-Type: application/json" 
   -d '{
     "title": "Nueva Nota",
