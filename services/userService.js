@@ -27,7 +27,8 @@ const userService = {
     const { body } = req;
 
     try {
-      const isUser = await User.findOne({ email: body.email });
+      const email = body.email.toLowerCase();
+      const isUser = await User.findOne({ email: email });
       if (isUser) {
         return res.status(403).send("usuario ya existe ");
       }
@@ -35,7 +36,7 @@ const userService = {
       const salt = await bcrypt.genSalt();
       const hashed = await bcrypt.hash(body.password, salt);
       const user = await User.create({
-        email: body.email,
+        email: body.email.toLowerCase(),
         password: hashed,
         userName: body.userName,
         salt
@@ -63,7 +64,8 @@ const userService = {
   loginUser: async (req, res) => {
     const { body } = req;
     try {
-      const user = await User.findOne({ email: body.email });
+      const email = body.email.toLowerCase();
+      const user = await User.findOne({ email: email });
       if (!user) {
         res.status(403).send("Usuario y/o contraseña invalida..");
       } else {
