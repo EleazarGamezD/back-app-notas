@@ -452,7 +452,8 @@ curl -X POST <%= apiUrl %>/note/add
         <h2 id="toggleButtonUpdateNote">Actualizar una Nota Existente</h2>
 
         <div id="infoSectionUpdateNote" class="hidden">
-          <p><strong>Endpoint:</strong> <code>PUT /note/{noteID}</code></p>
+          <p><strong>Endpoint:</strong> <code>PUT
+              /note/update/{noteID}</code></p>
 
           <p>Actualiza una nota existente del usuario.</p>
 
@@ -468,7 +469,7 @@ curl -X POST <%= apiUrl %>/note/add
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X PUT <%= apiUrl %>/note/123456789 
+curl -X PUT <%= apiUrl %>/note/update/123456789 
   -H "Content-Type: application/json" 
   -d '{
     "title": "Nuevo Título",
