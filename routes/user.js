@@ -10,11 +10,13 @@ router.post("/register", userController.registerUser);
 // Ruta para iniciar sesión
 router.post("/login", userController.loginUser);
 
-// Ruta para obtener un usuario por ID
+/*  Deprecados por el middleware de autenticación */
+/* // Ruta para obtener un usuario por ID
 router.get("/:id", userController.getUserById);
 
 // Ruta para obtener todos los usuarios
 router.get("/", userController.getAllUsers);
+ */
 
 // Ruta comodín para manejar rutas no definidas
 router.get("*", (req, res) => {
