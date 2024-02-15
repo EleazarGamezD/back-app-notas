@@ -237,7 +237,7 @@ curl <%= apiUrl %>/user/123456789
         <h2 id="toggleButtonCreateCategory">Crear Nueva Categoría</h2>
 
         <div id="infoSectionCreateCategory" class="hidden">
-          <p>Endpoint: <code>POST /category</code></p>
+          <p>Endpoint: <code>POST /category/create"</code></p>
 
           <p>Crea una nueva categoría.</p>
 
@@ -249,7 +249,7 @@ curl <%= apiUrl %>/user/123456789
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl -X POST <%= apiUrl %>/category 
+curl -X POST <%= apiUrl %>/category/create" 
   -H "Content-Type: application/json" 
   -d '{
     "name": "nueva_categoria"
@@ -290,7 +290,7 @@ curl -X POST <%= apiUrl %>/category
         <h2 id="toggleButtonGetAllCategories">Obtener Todas las Categorías</h2>
 
         <div id="infoSectionGetAllCategories" class="hidden">
-          <p>Endpoint: <code>GET /category</code></p>
+          <p>Endpoint: <code>GET /category/all</code></p>
 
           <p>Obtiene la lista de todas las categorías del usuario.</p>
 
@@ -300,7 +300,7 @@ curl -X POST <%= apiUrl %>/category
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl <%= apiUrl %>/category
+curl <%= apiUrl %>/category/all
     </code>
   </pre>
 
