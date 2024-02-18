@@ -152,8 +152,6 @@ const noteService = {
       }
       const categoryName = await Category.findById(existingNote.category);
       const updatedNote = await existingNote.save();
-      console.log(existingNote);
-      console.log(updatedNote);
       res.json({
         id: updatedNote._id,
         title: updatedNote.title,
