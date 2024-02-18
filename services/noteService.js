@@ -118,7 +118,8 @@ const noteService = {
    */
   updateNote: async (req, res) => {
     const id = req.params.noteId;
-    const { title, content, isActive } = req.body;
+    const userId = req.user._id;
+    const { title, content, category, isActive } = req.body;
     try {
       // Verifica si la nota existe
       const existingNote = await Note.findById(id);
@@ -134,16 +135,30 @@ const noteService = {
         existingNote.content = content;
         existingNote.updateDate = udateAt;
       }
+      if (category) {
+        let existingCategory = await Category.findOne({
+          name: category,
+          userId
+        });
+        if (!existingCategory) {
+          existingCategory = await Category.create({ name: category, userId });
+        }
+        existingNote.category = existingCategory._id;
+        existingNote.updateDate = udateAt;
+      }
+
       if (isActive !== undefined) {
         existingNote.isActive = isActive;
       }
-      const category = await Category.findById(existingNote.category);
+      const categoryName = await Category.findById(existingNote.category);
       const updatedNote = await existingNote.save();
+      console.log(existingNote);
+      console.log(updatedNote);
       res.json({
         id: updatedNote._id,
         title: updatedNote.title,
         content: updatedNote.content,
-        category: category.name,
+        category: categoryName.name,
         isActive: updatedNote.isActive,
         createDate: updatedNote.createDate,
         updateDate: updatedNote.updateDate
