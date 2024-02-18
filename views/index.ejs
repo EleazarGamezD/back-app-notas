@@ -552,7 +552,8 @@ curl -X DELETE <%= apiUrl %>/note/delete/123456789
         <h2 id="toggleButtonGetNoteById">Obtener una Nota por ID</h2>
 
         <div id="infoSectionGetNoteById" class="hidden">
-          <p><strong>Endpoint:</strong> <code>GET /note/{noteID}</code></p>
+          <p><strong>Endpoint:</strong> <code>GET
+              /note/getnote/{noteID}</code></p>
 
           <p>Obtiene la información de una nota específica por su ID.</p>
 
@@ -562,7 +563,7 @@ curl -X DELETE <%= apiUrl %>/note/delete/123456789
           <h3>Ejemplo de solicitud:</h3>
           <pre>
     <code>
-curl <%= apiUrl %>/note/123456789
+curl <%= apiUrl %>/note/getnote/123456789
     </code>
   </pre>
 
